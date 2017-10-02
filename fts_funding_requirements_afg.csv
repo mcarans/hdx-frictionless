@@ -1,0 +1,19 @@
+country,id,name,code,startDate,endDate,year,revisedRequirements,totalFunding,percentFunded
+#country+name,#activity+appeal+id+fts_internal,#activity+appeal+name,#activity+appeal+id+external,#date+start,#date+end,#date+year,#value+funding+required+usd,#value+funding+total+usd,#value+funding+pct
+Afghanistan,544,Afghanistan 2017,HAFG17,2017-01-01,2017-12-31,2017,550236457.0,150258483,27
+Afghanistan,512,Afghanistan 2016,HAFG16,2016-01-01,2016-12-31,2016,338833024.0,287033060,84
+Afghanistan,525,Afghanistan Flash Appeal: One million people on the move (September - December 2016),FAFG16,2016-09-01,2016-12-31,2016,152100000.0,67497498,44
+Afghanistan,462,Afghanistan 2015,HAFG15,2015-01-01,2015-12-31,2015,416666132.0,275560305,66
+Afghanistan,426,Afghanistan 2014,HAFG14,2014-01-01,2014-12-31,2014,406429895.0,314388805,77
+Afghanistan,399,Afghanistan 2013,CAFG13,2013-01-01,2013-12-31,2013,474428380.0,345061832,72
+Afghanistan,370,Afghanistan 2012,CAFG1112,2011-11-30,2012-12-31,2012,448551322.0,187201606,41
+Afghanistan,354,Afghanistan 2011,CAFG11,2011-01-01,2011-12-31,2011,582318627.0,420001448,72
+Afghanistan,325,Afghanistan Humanitarian Action Plan 2010,CAFG10,2010-01-01,2010-12-31,2010,774508310.0,460333684,59
+Afghanistan,307,Afghanistan Humanitarian Action Plan 2009,CAFG09,2009-01-01,2009-12-31,2009,664923055.0,384431132,57
+Afghanistan,283,Afghanistan Joint Emergency Appeal 2008: High Food Price and Drought Crisis (July 2008 - June 2009),OAFG0809,2008-07-01,2009-06-30,2008,404319728.0,201952864,49
+Afghanistan,272,Afghanistan Joint Appeal 2008: Humanitarian Consequences of Rise in Food Prices (February - June 2008),OAFG08,2008-02-01,2008-06-30,2008,81321254.0,75038024,92
+Afghanistan,213,Afghanistan Drought Joint Appeal 2006,OAFG06,2006-07-01,2006-12-31,2006,119769805.0,63620911,53
+Afghanistan,176,Afghanistan UN-Government Drought Appeal 2004,OAFG04,2004-09-01,2004-12-31,2004,72841021.0,26511074,36
+Afghanistan,121,Afghanistan TAPA 2003,OAFG03,2003-01-01,2003-12-31,2003,270590000.0,313948366,116
+Afghanistan,92,Afghanistan 2002 (ITAP for the Afghan People),CAFG0102,2001-10-01,2002-12-31,2002,1780509639.0,1196693956,67
+Afghanistan,70,Afghanistan 2001,CAFG01,2001-01-01,2001-09-30,2001,,-81522932,
