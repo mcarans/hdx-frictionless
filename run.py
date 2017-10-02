@@ -62,6 +62,7 @@ def main():
         field = OrderedDict([('name', header)])
         if hashtag_type is not None:
             field['type'] = hashtag_type
+        field['hxl_tag'] = tag
         fields.append(field)
     print(jsonoutput)
     with open('datapackage.json', 'wt') as fp:
