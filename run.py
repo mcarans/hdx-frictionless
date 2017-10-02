@@ -4,6 +4,7 @@
 Top level script. Calls other functions that generate datasets that this script then creates in HDX.
 
 """
+import json
 import logging
 from collections import OrderedDict
 from os.path import join
@@ -45,8 +46,6 @@ def main():
 
     file = 'fts_funding_requirements_afg.csv'
     dataset = hxl.data(file, allow_local=True)
-    print(dataset.headers)
-    print(dataset.display_tags)
     jsonoutput = OrderedDict()
     jsonoutput['name'] = file
     jsonoutput['datapackage_version'] = '1.0-beta'
@@ -65,6 +64,8 @@ def main():
             field['type'] = hashtag_type
         fields.append(field)
     print(jsonoutput)
+    with open('datapackage.json', 'wt') as fp:
+        json.dump(jsonoutput, fp, indent=4, separators=(',', ': '))
 
 
 if __name__ == '__main__':
