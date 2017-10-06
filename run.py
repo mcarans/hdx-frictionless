@@ -14,14 +14,12 @@ from hxl_frictionless.converter import Converter
 logger = logging.getLogger(__name__)
 
 
-class HXLFrictionlessError(Exception):
-    pass
-
-
 def main():
     """Read HXL schema"""
     converter = Converter()
-    converter.convert_hdx_dataset('fts-requirements-and-funding-data-for-afghanistan', 'datapackage.json')
+    converter.convert_hdx_dataset('haiti-population-food-security-outlook-and-livelihood-zones-by-admin-3-for-september-2016', 'haiti_datapackage.json')
+    converter.convert_hdx_dataset('lcb-displaced', 'lcb_datapackage.json')
+    converter.convert_hdx_dataset('fts-requirements-and-funding-data-for-afghanistan', 'fts_datapackage.json')
 
 
 if __name__ == '__main__':

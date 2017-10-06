@@ -4,19 +4,16 @@
 Conversion from HXL to Frictionless
 
 """
-import json
 import logging
-from collections import OrderedDict
-from urllib.parse import urlparse
 
+import tabulator
 from datapackage import Package
-from hdx.data.resource import Resource
-from os.path import basename, splitext
 
 import hxl
 from hdx.data.dataset import Dataset
 from hdx.hdx_configuration import Configuration
 from hxl.io import HXLTagsNotFoundException
+from slugify import slugify
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +50,12 @@ class Converter(object):
             self.hashtag_types[row.get('#valid_tag')] = row.get('#valid_datatype')
 
     def convert_hxl_url(self, frictionless_resource):
-        dataset = hxl.data(frictionless_resource['path'])
+        path = frictionless_resource['path']
+        try:
+            dataset = hxl.data(path)
+        except Exception as ex:
+            logger.exception('HXL library cannot read %s' % path)
+            return
         try:
             dataset.columns
         except HXLTagsNotFoundException:
@@ -77,9 +79,13 @@ class Converter(object):
         package = Package({'id': dataset['id'], 'name': dataset['name'], 'title': dataset['title'],
                            'description': dataset['notes']})
         for hdx_resource in dataset.get_resources():
-            package.add_resource({'name': hdx_resource['name'], 'path': hdx_resource['url'],
+            name = hdx_resource['name'].lower().replace(' ', '_')
+            package.add_resource({'name': name, 'path': hdx_resource['url'],
                                   'format': hdx_resource['format'].lower(), 'title': hdx_resource['description']})
-        package.infer()
+        try:
+            package.infer()
+        except tabulator.exceptions.FormatError:
+            pass
         for frictionless_resource in package.descriptor['resources']:
             self.convert_hxl_url(frictionless_resource)
         package.commit()
