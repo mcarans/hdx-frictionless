@@ -13,12 +13,11 @@ import hxl
 from hdx.data.dataset import Dataset
 from hdx.hdx_configuration import Configuration
 from hxl.io import HXLTagsNotFoundException
-from slugify import slugify
 
 logger = logging.getLogger(__name__)
 
 
-class HXLFrictionlessError(Exception):
+class HDXFrictionlessError(Exception):
     pass
 
 
@@ -32,7 +31,7 @@ class Converter(object):
         hxl_schema_dataset = Configuration.read()['hxl_schema_dataset']
         dataset = Dataset.read_from_hdx(hxl_schema_dataset)
         if dataset is None:
-            raise HXLFrictionlessError('HXL Schema Dataset: %s does not exist!' % hxl_schema_dataset)
+            raise HDXFrictionlessError('HXL Schema Dataset: %s does not exist!' % hxl_schema_dataset)
         resources = dataset.get_resources()
         hashtag_schema = None
         attribute_schema = None
@@ -43,7 +42,7 @@ class Converter(object):
                 attribute_schema = resource['url']
         logger.info('hashtag_schema = %s, attribute schema = %s' % (hashtag_schema, attribute_schema))
         if not hashtag_schema or not attribute_schema:
-            raise HXLFrictionlessError('Missing schema!')
+            raise HDXFrictionlessError('Missing schema!')
         dataset = hxl.data(hashtag_schema)
         self.hashtag_types = dict()
         for row in dataset:

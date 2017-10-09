@@ -9,7 +9,7 @@ from os.path import join
 
 from hdx.facades.hdx_scraperwiki import facade
 
-from hxl_frictionless.converter import Converter
+from hdx_frictionless.converter import Converter
 
 logger = logging.getLogger(__name__)
 
